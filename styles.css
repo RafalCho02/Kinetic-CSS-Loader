@@ -1,0 +1,104 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #1c2833;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  height: 100vh;
+  margin: 0;
+}
+
+.kinetic {
+  position: relative;
+  height: 100px;
+  width: 100px;
+}
+
+.kinetic::after,
+.kinetic::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border: 60px solid transparent;
+  border-bottom-color: #f39c12;
+  animation: rotateA 3s ease-in-out infinite 0.5s,
+    colorChangeA 6s ease-in-out infinite;
+}
+
+.kinetic::before {
+  transform: rotate(90deg);
+  animation: rotateB 3s ease-in-out infinite,
+    colorChangeB 6s ease-in-out infinite;
+}
+
+@keyframes rotateA {
+  0%,
+  25% {
+    transform: rotate(0deg);
+  }
+  50%,
+  75% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotateB {
+  0%,
+  25% {
+    transform: rotate(90deg);
+  }
+  50%,
+  75% {
+    transform: rotate(270deg);
+  }
+  100% {
+    transform: rotate(450deg);
+  }
+}
+
+@keyframes colorChangeA {
+  0% {
+    border-bottom-color: #f39c12;
+  }
+  25% {
+    border-bottom-color: #e74c3c;
+  }
+  50% {
+    border-bottom-color: #8e44ad;
+  }
+  75% {
+    border-bottom-color: #3498db;
+  }
+  100% {
+    border-bottom-color: #f39c12;
+  }
+}
+
+@keyframes colorChangeB {
+  0% {
+    border-bottom-color: #3498db;
+  }
+  25% {
+    border-bottom-color: #8e44ad;
+  }
+  50% {
+    border-bottom-color: #e74c3c;
+  }
+  75% {
+    border-bottom-color: #f39c12;
+  }
+  100% {
+    border-bottom-color: #3498db;
+  }
+}
